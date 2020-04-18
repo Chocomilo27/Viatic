@@ -30,5 +30,7 @@ namespace Viatic.Web.Data.Entities
         public DateTime? EndDateLocal => EndDate?.ToLocalTime();
 
         public ICollection<ExpenseEntity> Expenses { get; set; }
+
+        public UserEntity User { get; set; }
     }
 }
