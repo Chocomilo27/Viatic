@@ -19,7 +19,7 @@ namespace Viatic.Web.Data.Entities
 
         public TripEntity Trip { get; set; }
 
-        public ICollection<ExpenseTypeEntity> ExpensesType { get; set; }
+        public ICollection<ExpenseTypeEntity> ExpenseTypes { get; set; }
 
     }
 }
