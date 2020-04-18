@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Viatic.Web.Data;
 using Viatic.Web.Data.Entities;
 
@@ -33,7 +30,7 @@ namespace Viatic.Web.Controllers
                 return NotFound();
             }
 
-            var tripEntity = await _context.Trips.FindAsync(id);
+            TripEntity tripEntity = await _context.Trips.FindAsync(id);
             if (tripEntity == null)
             {
                 return NotFound();
@@ -68,7 +65,7 @@ namespace Viatic.Web.Controllers
                 return NotFound();
             }
 
-            var tripEntity = await _context.Trips.FindAsync(id);
+            TripEntity tripEntity = await _context.Trips.FindAsync(id);
             if (tripEntity == null)
             {
                 return NotFound();
@@ -79,7 +76,7 @@ namespace Viatic.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,  TripEntity tripEntity)
+        public async Task<IActionResult> Edit(int id, TripEntity tripEntity)
         {
             if (id != tripEntity.Id)
             {
@@ -88,7 +85,7 @@ namespace Viatic.Web.Controllers
 
             if (ModelState.IsValid)
             {
-               
+
                 _context.Update(tripEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -104,7 +101,7 @@ namespace Viatic.Web.Controllers
                 return NotFound();
             }
 
-            var tripEntity = await _context.Trips.FindAsync(id);
+            TripEntity tripEntity = await _context.Trips.FindAsync(id);
             if (tripEntity == null)
             {
                 return NotFound();
@@ -120,7 +117,7 @@ namespace Viatic.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var tripEntity = await _context.Trips.FindAsync(id);
+            TripEntity tripEntity = await _context.Trips.FindAsync(id);
             _context.Trips.Remove(tripEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
