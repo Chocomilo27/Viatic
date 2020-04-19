@@ -25,9 +25,9 @@ namespace Viatic.Web.Data
         {
             await _dataContext.Database.EnsureCreatedAsync();
             await CheckRolesAsync();
-            await CheckUserAsync("1010", "Juan", "Zuluaga", "jzuluaga55@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Admin);
-            var employee1 = await CheckUserAsync("3030", "Juan", "Zuluaga", "carlos.zuluaga@globant.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Employee);
-            var employee2 = await CheckUserAsync("4040", "Juan", "Zuluaga", "juanzuluaga2480@correo.itm.edu.co", "350 634 2747", "Calle Luna Calle Sol", UserType.Employee);
+            await CheckUserAsync("1010", "Camilo", "Alzate", "chocomilo27@gmail.com", "3217531604", "cra 50 N 36 27", UserType.Admin);
+            var employee1 = await CheckUserAsync("3030", "Samantha", "Alzate", "kmilospina_114@hotmail.com", "3162548745", "Calle 25 N 85-16", UserType.Employee);
+            var employee2 = await CheckUserAsync("4040", "Camila", "Zuluaga", "ivanalzate213628@correo.itm.edu.co", "3192044360", "Calle 23 N 84 -65", UserType.Employee);
             await CheckTripAsync(employee1, employee2);
         }
 
